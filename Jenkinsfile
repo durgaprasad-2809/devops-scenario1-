@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        gradle 'gradle'  // This must match the name you configured in Jenkins Global Tools
+        gradle 'gradle'  // This matches the name configured in Jenkins Global Tools
     }
 
     stages {
@@ -14,25 +14,21 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'gradle clean build'
+                sh './gradlew clean build'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running tests...'
-            }
-        }
-
-        stage('Run Python Script') {
-            steps {
-                sh 'python3 login.py'
+                // You can add additional testing steps here if needed
             }
         }
 
         stage('Deploy') {
             steps {
                 echo 'Deploying application...'
+                // You can add your deployment steps here
             }
         }
     }
@@ -43,4 +39,3 @@ pipeline {
         }
     }
 }
-
