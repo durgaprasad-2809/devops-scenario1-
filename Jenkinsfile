@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        gradle 'Gradle'  // This refers to the name you gave Gradle in Global Tool Configuration
+        gradle 'gradle'  // This refers to the name you gave Gradle in Global Tool Configuration
     }
     stages {
         stage('Checkout') {
